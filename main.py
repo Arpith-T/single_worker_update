@@ -1,14 +1,13 @@
-import os
 import time
-
 import requests
 import json
-import os                                                                                                          
+import os
 
 tenant_name = "az-manual"
 
 
-# tenant_name = os.getenv("TENANT")
+# tenant_name = os.getenv("AZURE_TENANT")
+
 
 def ziat001_trm_token():
     url = "https://ziat001.authentication.eu20.hana.ondemand.com/oauth/token?grant_type=client_credentials"
@@ -56,7 +55,7 @@ def monitor_worker_update():
     import requests
     import json
 
-    url = "https://it-ziat001-trm.cfapps.eu20.hana.ondemand.com/api/trm/v1/tenant-softwares/tasks"
+    url = f"https://it-ziat001-trm.cfapps.eu20.hana.ondemand.com/api/trm/v1/tenant-softwares/tasks?tenantNames={tenant_name} "
 
     payload = ""
     headers = {
@@ -70,6 +69,7 @@ def monitor_worker_update():
 
     in_progress = response.json()["inProgress"]
     return in_progress
+
 
 start_time = time.time()
 force_worker_update()
