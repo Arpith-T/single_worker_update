@@ -14,7 +14,7 @@ def ziat001_trm_token():
 
     payload = {}
     headers = {
-        'Authorization': 'Basic c2ItaXQhYjIxMjoxMDA4YTY5Yy04ZjY4LTRmMmMtODhhNy0zMTI1ZTliZDBkOTEkTTYwNV9hTWdINGJvWmhIQ1hLZE5HRkNuV2tzRHNpN0ZTcmVzNUNwTk9Iaz0='
+        'Authorization': 'Basic '
     }
 
     response = requests.request("GET", url, headers=headers, data=payload)
